@@ -1,0 +1,155 @@
+body, /* pirmasis selektroius po kurio tikrinama kam pritaikyti stiliai */
+body *{ /* sekantis, kuriam bus pritaikyti zemiau aprasyti stiliai. cia reiskia visiems */
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box; /* skaiciuok itraukdamas ir krastiniu stori. content-box kai neskaiciuoja skrastiniu */
+  vertical-align: top; /* lygiuoja viska is virsaus, nes narsykles vertikaliam lygevime sumala sudo daznai */
+}
+/*
+
+visi tiesioginiai vaikai tago div, bet ne anukam.
+div > * {
+}
+
+divui, jo vaikam ir jo anukam.
+div * {
+}
+
+*/
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700');
+
+:root {
+  --mainColor: #BF8C45;  /*  var(--mainColor);  */
+  --mainBright: #FFBB5C;  /*  var(--mainBright);  */
+  --mainDark: #7F5D2E;  /*  var(--mainDark);  */
+  --accentDark: #1C79B2;  /*  var(--accentDark);  */
+  --accentBright: #5CC1FF;  /*  var(--accentBright);  */
+  --bg: #42828A;
+}
+
+body {
+  background-color: var(--bg);
+}
+
+.isorine-lenta {
+  background-color: var(--mainDark);
+  display: inline-block;
+  width: 500px;
+  height: 500px;
+  margin-left: calc(50% - 250px);
+  margin-top: calc(50vh - 250px);
+  border: 14px solid var(--mainColor);
+  box-sizing: content-box;
+  border-radius: 6%;
+  box-shadow: 11px 12px 65px 0px rgba(0, 0, 0, 0.2);
+
+}
+
+.v-raides {
+  background-color: var(--mainDark);
+  display: inline-block;
+  width: 400px;
+  height: 50px;
+  margin-left: calc(50% - 200px);
+  z-index: 1;  /*  SUMMON DESTYTUVAS. bugas su shadow, z-index nepadeda */
+
+}
+  .raide {
+    display: grid;
+    place-items: center;
+    float: left;
+    width: 25%;
+    height: 100%;
+  }
+
+.h-lenta {
+  display: inline-block;
+  width: 100%;
+  height: 400px;
+}
+
+.h-skaiciai {
+  background-color: var(--mainDark);
+  display: block;
+  height: 100%;
+  width: 50px;
+}
+  .skaicius {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 25%;
+  }
+
+.L {
+  display: inline-block;
+  float: left;
+}
+
+.R {
+  display: inline-block;
+  float: right;
+}
+
+.text {
+  color: var(--mainColor);
+  font-size: 24px;
+  text-transform: uppercase;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.text-invert {
+  transform: rotateX(180deg) rotateY(180deg);
+}
+  /*  vidine lenta: ;*/
+.lenta {
+  display: inline-block;
+  width: 400px;
+  height: 400px;
+  /*margin-left: calc(50% - 200px);
+  margin-top: calc(50% - 200px); */
+  background-color: var(--mainBright);
+  border: 14px solid var(--mainColor);
+  border-radius: 2%;
+  box-shadow: 8px 8px 25px 0px rgba(0, 0, 0, .5);
+  z-index: 10;
+}
+
+.eilute {
+  display: inline-block;
+  width: 100%;
+  height: 25%;
+}
+
+.langelis{
+  display: inline-block;
+  width: 25%;
+  height: 100%;
+  float: left; /* jei norim, kad viskas graziai griutu i kaire - holy trinity, reikia float left. */
+}
+
+.spalvotas{
+  background-color: var(--mainDark);
+}
+
+.saske{
+  background-color: var(--accentBright);
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  margin: 15%;
+  box-shadow: 5px 5px 25px 0px rgba(0, 0, 0, .5);
+}
+
+.dama{
+  border: 14px solid var(--accentDark);
+}
+
+.eilute > .langelis > .saske { /* paslepia visas saskes  */
+  display: none;
+}
+
+.eilute:first-child > .langelis > .saske, /* psiaudo selektoriai. first-child reiskia pirmas vaikas. atskleidziam pirma eilute. */
+.eilute:last-child > .langelis > .saske {
+  display: block;
+}
